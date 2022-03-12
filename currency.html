@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background:  rgba(55, 1, 252, 0.815);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+           text-align: center;
+            padding: 60px;
+            background-color: #1b000010;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 150px ;
+            color: white;
+        }
+        #container input[type=text]{
+            border: 2px solid white;
+            padding: 20px;
+            background-color: transparent; 
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            width: 70%;
+            margin-bottom: 5px;
+            outline: none;
+            font-size: 18px;
+        }
+        select{
+            width:70% ; 
+            outline: none; 
+            color: white; 
+            background-color: rgba(150, 138, 138, 0.781);
+            padding: 5px;
+            text-align: center;
+        }
+        
+        button{
+            border-radius: 15px; 
+            padding: 5px;
+             width: 70%; 
+             color: white; 
+             outline: none; 
+             background-color: rgba(107, 98, 98, 0.781);
+             font-size: 18px;
+        }
+        button:hover{
+            background-color: rgb(68, 0, 255);
+        }
+        h2{
+            text-align: center; 
+            color: aliceblue;
+        }
+        option{
+            background-color: rgba(0, 0, 0, 0.596);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Input your currency</h2>
+    <input type="text" id="money" value=""><br>
+    <select name="" id="currency" onchange="myCurrency()">
+        <option value="0">Select Currency</option>
+        <option value="1">Naira to Dollar</option>
+        <option value="2">Naira to Euro</option>
+        <option value="3">Naira to Pound</option>
+        <option value="4">Dollar to Naira</option>
+        <option value="5">Euro to Naira</option>
+        <option value="6">Pound to Naira</option>
+    </select><br><br>
+
+    <button onclick="terminate()">Close Window</button>
+    <p>Note: The currency value does not rely on an API, which mean the value may not be accurate</p>
+    </div>
+        <script>
+        function myCurrency(){
+            var selection = parseInt(document.getElementById("currency").value)
+            var amount = parseInt(document.getElementById("money").value)
+            var result = 0;
+
+            switch(selection){
+                case 1:
+                result = amount / 600
+                break
+                case 2:
+                result = amount / 700
+                break
+                case 3:
+                result = amount / 800
+                break
+                case 4:
+                result = amount * 600
+                break
+                case 5:
+                result = amount * 700
+                break
+                case 6:
+                result = amount * 800
+                break
+            }
+            document.getElementById("money").value = result.toFixed(2)
+        }
+        function terminate(){
+            window.close()
+        }
+    </script>
+</body>
+</html>
